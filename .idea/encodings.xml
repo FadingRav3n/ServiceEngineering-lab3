@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ConsumerApplication16000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConsumerApplication16000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConsumerApplication16001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ConsumerApplication16001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EurekaApplication18000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EurekaApplication18000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EurekaApplication18001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/EurekaApplication18001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Provider11001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Provider11001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProviderApplication11000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProviderApplication11000/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProviderApplication11001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProviderApplication11001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
