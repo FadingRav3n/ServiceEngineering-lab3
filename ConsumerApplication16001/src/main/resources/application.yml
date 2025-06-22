@@ -1,0 +1,47 @@
+server:
+  port: 16001
+spring:
+  application:
+    name: "consumer-service"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: "${spring.cloud.client.ip-address}:${server.port}"
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    service-url:
+      defaultZone: "http://eurekaServer18000:18000/eureka/"
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      backendA:
+        failure-rate-threshold: 30
+        sliding-window-type: TIME_BASED
+        sliding-window-size: 10 # 单位：秒
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+      backendB:
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 30
+        slow-call-duration-threshold: 2s
+        sliding-window-type: TIME_BASED
+        sliding-window-size: 10 # 单位：秒
+        minimum-number-of-calls: 5
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+  bulkhead:
+    instances:
+      bulkheadA:
+        max-concurrent-calls: 10
+        max-wait-duration: 20ms
+        writable-stack-trace-enabled: true
+  ratelimiter:
+    instances:
+      ratelimiterA:
+        limit-for-period: 5         # 每个刷新周期最多允许5个请求
+        limit-refresh-period: 2s    # 刷新周期为2秒
+        timeout-duration: 0         # 拒绝时不等待，立即进入降级
