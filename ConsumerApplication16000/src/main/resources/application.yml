@@ -3,6 +3,15 @@ server:
 spring:
   application:
     name: "consumer-service"
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=100,expireAfterWrite=60s
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080  # Sentinel 控制台地址
+      eager: true
 
 eureka:
   instance:
@@ -12,7 +21,7 @@ eureka:
     lease-expiration-duration-in-seconds: 15
   client:
     service-url:
-      defaultZone: "http://eurekaServer18000:18000/eureka/"
+      defaultZone: "http://eurekaServer18000:18000/eureka/,http://eurekaServer18001:18001/eureka/"
 
 resilience4j:
   circuitbreaker:
@@ -45,3 +54,8 @@ resilience4j:
         limit-for-period: 5         # 每个刷新周期最多允许5个请求
         limit-refresh-period: 2s    # 刷新周期为2秒
         timeout-duration: 1s
+  timelimiter:
+    instances:
+      myTimeLimiter:
+        timeout-duration: 2s   # 超时时间2秒
+        cancel-running-future: true
